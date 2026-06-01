@@ -30,11 +30,11 @@ jobs:
 
       - name: Create deployment package
         run: |
-          echo "web: node index.js" > dist/Procfile
-          cp package.json dist/
+          cp package.json package-lock.json dist/
           sed -i 's|"start": "node dist/index.js"|"start": "node index.js"|' dist/package.json
-          cp package-lock.json dist/
-          echo "omit=dev" > dist/.npmrc
+          echo "web: node index.js" > dist/Procfile
+          cp -r .ebextensions dist/
+          npm ci --omit=dev --prefix dist
           cd dist
           zip -r ../deploy.zip .
 
@@ -65,6 +65,7 @@ jobs:
           version_label: ${{ github.sha }}
           region: ${{ secrets.AWS_REGION }}
           deployment_package: deploy.zip
+          recovery_wait_time: 120
 
   build-and-deploy-frontend:
     name: Build and deploy frontend

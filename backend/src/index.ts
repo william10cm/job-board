@@ -21,6 +21,10 @@ app.use('/api/jobs', jobRoutes);
 app.use('/api/companies', companyRoutes);
 app.use('/api/applications', applicationRoutes);
 
+app.get('/', (_req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.get('/health', async (_req, res) => {
   try {
     await pool.query('SELECT 1');
@@ -46,6 +50,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.listen(PORT, () => {
+app.listen(Number(PORT), '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
