@@ -32,6 +32,7 @@ jobs:
         run: |
           echo "web: node index.js" > dist/Procfile
           cp package.json dist/
+          sed -i 's|"start": "node dist/index.js"|"start": "node index.js"|' dist/package.json
           cp package-lock.json dist/
           echo "omit=dev" > dist/.npmrc
           cd dist
