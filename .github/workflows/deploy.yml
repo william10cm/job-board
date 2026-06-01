@@ -33,7 +33,7 @@ jobs:
           cp Procfile dist/
           cp package.json dist/
           cp package-lock.json dist/
-          cp .npmrc dist/ 2>/dev/null || true
+          echo "omit=dev" > dist/.npmrc
           cd dist
           zip -r ../deploy.zip .
 
