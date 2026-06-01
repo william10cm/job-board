@@ -1,0 +1,12 @@
+INSERT INTO companies (id, name, location, website, description) VALUES
+  ('a1b2c3d4-0000-0000-0000-000000000001', 'TechCorp', 'New York, NY', 'https://techcorp.com', 'A leading software company building enterprise solutions.'),
+  ('a1b2c3d4-0000-0000-0000-000000000002', 'DesignHub', 'San Francisco, CA', 'https://designhub.io', 'Creative agency specializing in product design and UX.'),
+  ('a1b2c3d4-0000-0000-0000-000000000003', 'DataWorks', 'Austin, TX', 'https://dataworks.ai', 'AI-driven data analytics platform for enterprise clients.');
+
+INSERT INTO jobs (company_id, title, location, job_type, description) VALUES
+  ('a1b2c3d4-0000-0000-0000-000000000001', 'Senior React Developer', 'New York, NY', 'full-time', 'We are looking for a Senior React Developer to join our frontend team. You will build scalable web applications using React, TypeScript, and Node.js. Strong experience with REST APIs and PostgreSQL required.'),
+  ('a1b2c3d4-0000-0000-0000-000000000001', 'Backend Engineer', 'Remote', 'remote', 'Join our backend team building microservices with Node.js and Express. Experience with PostgreSQL, Redis, and AWS is a plus. You will own features end to end.'),
+  ('a1b2c3d4-0000-0000-0000-000000000002', 'UI/UX Designer', 'San Francisco, CA', 'full-time', 'DesignHub is hiring a talented UI/UX Designer. You will work closely with product managers and engineers to create beautiful, user-centered interfaces. Figma expertise required.'),
+  ('a1b2c3d4-0000-0000-0000-000000000002', 'Frontend Developer', 'San Francisco, CA', 'contract', 'Contract role for a skilled frontend developer. React and CSS expertise required. You will implement designs from Figma into pixel-perfect responsive interfaces.'),
+  ('a1b2c3d4-0000-0000-0000-000000000003', 'Data Engineer', 'Austin, TX', 'full-time', 'DataWorks is looking for a Data Engineer to build and maintain our data pipelines. Experience with Python, SQL, and AWS Glue required. PostgreSQL and dbt knowledge is a plus.'),
+  ('a1b2c3d4-0000-0000-0000-000000000003', 'Machine Learning Engineer', 'Remote', 'remote', 'Join our ML team building recommendation and forecasting models. Strong Python skills required along with experience in TensorFlow or PyTorch. AWS SageMaker experience preferred.');

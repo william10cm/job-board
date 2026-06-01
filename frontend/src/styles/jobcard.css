@@ -1,0 +1,59 @@
+.job-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-color: #e94560;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.job-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.job-type-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.job-type-badge.fulltime  { background: #e8f5e9; color: #2e7d32; }
+.job-type-badge.parttime  { background: #fff3e0; color: #e65100; }
+.job-type-badge.contract  { background: #e3f2fd; color: #1565c0; }
+.job-type-badge.remote    { background: #f3e5f5; color: #6a1b9a; }
+
+.job-company {
+  font-size: 0.95rem;
+  color: #e94560;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.job-location {
+  font-size: 0.88rem;
+  color: #666;
+  margin-bottom: 0.4rem;
+}
+
+.job-date {
+  font-size: 0.8rem;
+  color: #999;
+}
