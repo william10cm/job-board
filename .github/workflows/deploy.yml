@@ -33,7 +33,6 @@ jobs:
           cp package.json package-lock.json dist/
           sed -i 's|"start": "node dist/index.js"|"start": "node index.js"|' dist/package.json
           echo "web: node index.js" > dist/Procfile
-          cp -r .ebextensions dist/
           npm ci --omit=dev --prefix dist
           cd dist
           zip -r ../deploy.zip .
