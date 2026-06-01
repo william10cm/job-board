@@ -30,7 +30,7 @@ jobs:
 
       - name: Create deployment package
         run: |
-          cp Procfile dist/
+          echo "web: node index.js" > dist/Procfile
           cp package.json dist/
           cp package-lock.json dist/
           echo "omit=dev" > dist/.npmrc
