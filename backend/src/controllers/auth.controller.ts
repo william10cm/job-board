@@ -9,13 +9,13 @@ const JWT_EXPIRES_IN = (process.env.JWT_EXPIRES_IN ?? '7d') as SignOptions['expi
 
 const registerSchema = z.object({
   name: z.string().min(2),
-  email: z.string().email(),
+  email: z.email(),
   password: z.string().min(6),
   role: z.enum(['applicant', 'employer']).default('applicant'),
 });
 
 const loginSchema = z.object({
-  email: z.string().email(),
+  email: z.email(),
   password: z.string().min(1),
 });
 
