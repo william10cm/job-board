@@ -65,6 +65,7 @@ jobs:
           region: ${{ secrets.AWS_REGION }}
           deployment_package: deploy.zip
           use_existing_version_if_available: true
+          wait_for_deployment: false
 
   build-and-deploy-frontend:
     name: Build and deploy frontend
