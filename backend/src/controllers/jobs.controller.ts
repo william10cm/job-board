@@ -1,15 +1,5 @@
 import { Request, Response } from 'express';
-import { z } from 'zod';
 import pool from '../db/pool';
-import { AuthRequest } from '../middleware/auth.middleware';
-
-const jobSchema = z.object({
-  company_id: z.string().uuid(),
-  title: z.string().min(2),
-  location: z.string().optional(),
-  job_type: z.enum(['full-time', 'part-time', 'contract', 'remote']).default('full-time'),
-  description: z.string().min(10),
-});
 
 export const getAllJobs = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -42,42 +32,6 @@ export const getJobById = async (req: Request, res: Response): Promise<void> => 
       return;
     }
     res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
-  }
-};
-
-export const createJob = async (req: AuthRequest, res: Response): Promise<void> => {
-  const parsed = jobSchema.safeParse(req.body);
-  if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.flatten() });
-    return;
-  }
-
-  const { company_id, title, location, job_type, description } = parsed.data;
-
-  try {
-    const result = await pool.query(
-      `INSERT INTO jobs (company_id, title, location, job_type, description)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`,
-      [company_id, title, location, job_type, description]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
-  }
-};
-
-export const deleteJob = async (req: AuthRequest, res: Response): Promise<void> => {
-  try {
-    await pool.query(
-      'UPDATE jobs SET is_active = false WHERE id = $1',
-      [req.params.id]
-    );
-    res.json({ message: 'Job removed' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });

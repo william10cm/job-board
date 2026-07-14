@@ -6,6 +6,5 @@ const router = Router();
 
 router.get('/', getAllCompanies);
 router.get('/:id', getCompanyById);
-router.post('/', authenticate, createCompany);
 
 export default router;
